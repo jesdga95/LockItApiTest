@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LockItApiTest</string>
+    <string name="password">Password:</string>
+    <string name="text">Show password input</string>
+    <string name="pass">Pass</string>
+    <string name="fail">Fail</string>
+</resources>
