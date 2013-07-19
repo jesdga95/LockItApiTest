@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
                 intent.setComponent(ComponentName.unflattenFromString("com.jedga.lockit/.security.PasswordActivity"));
                 intent.putExtra(BROADCASTING, true);
                 String psw = text.getText().toString();
-                intent.putExtra(PASSWORD, psw.isEmpty() ? 123456 : Integer.parseInt(psw));
+                intent.putExtra(PASSWORD, psw.isEmpty() ? "123456" : psw);
                 startActivity(intent);
             }
         });
