@@ -16,7 +16,6 @@ public class MainActivity extends Activity {
 
     public final static String ACCESS_GRANTED = "com.jedga.lockit.ACCESS_GRANTED";
     public final static String ACCESS_DENIED = "com.jedga.lockit.ACCESS_DENIED";
-    public final static String BROADCASTING = "broadcasting";
     public final static String PASSWORD = "password";
 
     private LockItReceiver mLockItReceiver;
@@ -42,7 +41,6 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.setComponent(ComponentName.unflattenFromString("com.jedga.lockit/.security.PasswordActivity"));
-                intent.putExtra(BROADCASTING, true);
                 String psw = text.getText().toString();
                 intent.putExtra(PASSWORD, psw.isEmpty() ? "123456" : psw);
                 startActivity(intent);
