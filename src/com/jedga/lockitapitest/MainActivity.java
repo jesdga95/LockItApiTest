@@ -16,6 +16,7 @@ public class MainActivity extends Activity {
 
     public final static String ACCESS_GRANTED = "com.jedga.lockit.ACCESS_GRANTED";
     public final static String ACCESS_DENIED = "com.jedga.lockit.ACCESS_DENIED";
+    public final static String TIMEOUT = "timeout";
     public final static String PASSWORD = "password";
 
     private LockItReceiver mLockItReceiver;
@@ -33,7 +34,8 @@ public class MainActivity extends Activity {
 
         registerReceiver(mLockItReceiver, filter);
 
-        final EditText text = (EditText) findViewById(R.id.editText);
+        final EditText password = (EditText) findViewById(R.id.password_text);
+        final EditText timeout = (EditText) findViewById(R.id.timeout_text);
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -41,8 +43,10 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.setComponent(ComponentName.unflattenFromString("com.jedga.lockit/.security.PasswordActivity"));
-                String psw = text.getText().toString();
+                String psw = password.getText().toString();
+                String tout = timeout.getText().toString();
                 intent.putExtra(PASSWORD, psw.isEmpty() ? "123456" : psw);
+                intent.putExtra(TIMEOUT, tout.isEmpty() ? 15 : Integer.parseInt(tout));
                 startActivity(intent);
             }
         });
