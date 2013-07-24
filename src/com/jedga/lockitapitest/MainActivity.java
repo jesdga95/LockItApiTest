@@ -16,6 +16,7 @@ public class MainActivity extends Activity {
 
     public final static String ACCESS_GRANTED = "com.jedga.lockit.ACCESS_GRANTED";
     public final static String ACCESS_DENIED = "com.jedga.lockit.ACCESS_DENIED";
+    public final static String RANDOM_KEYBOARD = "random_keyboard";
     public final static String TIMEOUT = "timeout";
     public final static String PASSWORD = "password";
 
@@ -47,6 +48,7 @@ public class MainActivity extends Activity {
                 String tout = timeout.getText().toString();
                 intent.putExtra(PASSWORD, psw.isEmpty() ? "123456" : psw);
                 intent.putExtra(TIMEOUT, tout.isEmpty() ? 15 : Integer.parseInt(tout));
+                intent.putExtra(RANDOM_KEYBOARD, true);
                 startActivity(intent);
             }
         });
